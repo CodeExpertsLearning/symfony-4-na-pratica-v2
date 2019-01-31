@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if title is defined %}
+        <h1>{{ title ~ ' string ' }}</h1>
+    {% endif %}
+
+    {# Listas de postagens #}
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.id }} - {{ post.title }} -
+                {{ post.created_at|date("d/m/Y H:i:s") }}
+            </li>
+        {% endfor %}
+    </ul>
+    {# Listas de postagens #}
+
+    {% include 'include.html.twig' %}
+
+    {{ 'Nanderson ' ~ ' Castro'}}
+    {{ 5 + 9 }}
+
+{% endblock %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
