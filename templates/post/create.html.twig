@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('post_save') }}" method="post">
+        <p>
+            <label> Titulo da Postagem</label>
+            <input type="text" name="title">
+        </p>
+
+        <p>
+            <label> Descrição da Postagem</label>
+            <input type="text" name="description">
+        </p>
+
+
+        <p>
+            <label>Conteúdo da Postagem</label>
+            <textarea name="content" id="" cols="30" rows="10"></textarea>
+        </p>
+
+        <p>
+            <label>Slug</label>
+            <input type="text" name="slug">
+        </p>
+
+        <p>
+            <button type="submit">Criar Postagem</button>
+        </p>
+
+    </form>
+{% endblock %}
+
+{% block title %}
+    Criação de Post
+{% endblock %}
+

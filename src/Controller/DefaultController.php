@@ -36,7 +36,7 @@ class DefaultController extends AbstractController
 	}
 
 	/**
-	 * @Route("/post/{slug}")
+	 * @Route("/post-exemplo/{slug}")
 	 */
 	public function single($slug)
 	{

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Posts{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+    {% for message in app.session.flashbag.get('success') %}
+        <h2>{{ message }}</h2>
+    {% endfor %}
+
+    <h1>Postagens Recentes - <a href="{{ path('post_create') }}">Criar Post</a></h1>
+
+    <ul>
+        {% for post in posts %}
+            <li>
+                {{ post.id }} - {{ post.title }} - {{ post.createdAt|date('d/m/Y H:i:s') }} -
+                <a href="{{ path('post_edit', {'id': post.id}) }}">Editar</a> |
+                <a href="{{ path('post_remove', {'id': post.id}) }}">Apagar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
