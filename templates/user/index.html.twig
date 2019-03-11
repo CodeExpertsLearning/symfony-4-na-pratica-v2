@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Usuários</h1>
+    <a href="{{ path('user_create') }}" class="btn btn-sm btn-success">Criar Usuário</a>
+    <hr>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>Criado em</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.createdAt|date('d/m/Y H:i:s') }}</td>
+                <td>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="{{ path('user_remove', {'id': user.id}) }}" class="btn btn-sm btn-danger">Remover</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block title %}
+ Usuários
+{% endblock %}
+

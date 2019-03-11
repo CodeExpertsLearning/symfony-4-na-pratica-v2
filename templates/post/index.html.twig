@@ -10,10 +10,6 @@
 
 <div class="example-wrapper">
 
-    {% for message in app.session.flashbag.get('success') %}
-        <h2>{{ message }}</h2>
-    {% endfor %}
-
     <h1>Postagens Recentes - <a href="{{ path('post_create') }}">Criar Post</a></h1>
 
     <ul>
