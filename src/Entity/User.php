@@ -46,6 +46,11 @@ class User
      */
     private $updated_at;
 
+	/**
+	 * @ORM\OneToMany(targetEntity="Post", mappedBy="author")
+	 */
+    private $posts;
+
     public function getId(): ?int
     {
         return $this->id;
