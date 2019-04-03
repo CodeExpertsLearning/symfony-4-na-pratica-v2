@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Autor</th>
                 <th>Post</th>
                 <th>Criado Em</th>
                 <th>Ações</th>
@@ -20,6 +21,7 @@
         {% for post in posts %}
             <tr>
                 <td>{{ post.id }}</td>
+                <td>{{ post.author.firstName }}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.createdAt|date('d/m/Y H:i:s') }}</td>
                 <td>

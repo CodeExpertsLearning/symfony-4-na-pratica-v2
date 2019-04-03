@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,7 +53,17 @@ class Post
 	 */
     private $author;
 
-    public function getId(): ?int
+	/**
+	 * @ORM\ManyToMany(targetEntity="Category", inversedBy="postCollection")
+	 */
+    private $categoryCollection;
+
+    public function __construct()
+    {
+    	$this->categoryCollection = new ArrayCollection();
+    }
+
+	public function getId(): ?int
     {
         return $this->id;
     }
@@ -128,4 +139,33 @@ class Post
 
         return $this;
     }
+
+    public function getAuthor()
+    {
+		return $this->author;
+	}
+
+	public function setAuthor(User $author): self
+	{
+		$this->author = $author;
+		return $this;
+	}
+
+	public function getCategoryCollection()
+	{
+		return $this->categoryCollection;
+	}
+
+	public function setCategoryCollection(Category $categoryCollection): self
+	{
+		if($this->categoryCollection->contains($categoryCollection)) {
+			return $this;
+		}
+
+		$this->categoryCollection[] = $categoryCollection;
+
+		return $this;
+	}
+
+
 }

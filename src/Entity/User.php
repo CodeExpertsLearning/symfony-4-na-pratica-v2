@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,7 +52,12 @@ class User
 	 */
     private $posts;
 
-    public function getId(): ?int
+    public function __construct()
+    {
+    	$this->posts = new ArrayCollection();
+    }
+
+	public function getId(): ?int
     {
         return $this->id;
     }
@@ -126,5 +132,15 @@ class User
         $this->updated_at = $updated_at;
 
         return $this;
+    }
+
+    public function getPosts()
+    {
+    	return $this->posts;
+    }
+
+    public function __toString()
+    {
+		return $this->first_name . ' ' . $this->last_name;
     }
 }

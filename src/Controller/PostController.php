@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Entity\User;
 use App\Form\PostType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,6 +40,9 @@ class PostController extends AbstractController
 		    $post = $form->getData();
 		    $post->setCreatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
 		    $post->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
+
+//		    $user  = $this->getDoctrine()->getRepository(User::class)->find(1);
+//		    $post->setAuthor($user);
 
 		    $manager = $this->getDoctrine()->getManager();
 		    $manager->persist($post);
@@ -91,6 +95,9 @@ class PostController extends AbstractController
 		if($form->isSubmitted()) {
 			$post = $form->getData();
 			$post->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
+
+//			$user  = $this->getDoctrine()->getRepository(User::class)->find(1);
+//			$post->setAuthor($user);
 
 			$manager = $this->getDoctrine()->getManager();
 
