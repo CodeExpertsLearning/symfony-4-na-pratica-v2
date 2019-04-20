@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Entity\User;
@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/posts", name="post_")
+ * @Route("/admin/posts", name="post_")
  */
 class PostController extends AbstractController
 {
