@@ -19,7 +19,16 @@ class PostController extends AbstractController
      */
     public function index()
     {
-    	$posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
+    	$user  = $this->getUser();
+
+    	if($this->isGranted('ROLE_AUTHOR')) {
+		    $posts = $user->getPosts();
+	    }
+
+	    if($this->isGranted('ROLE_ADMIN')) {
+		    $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
+	    }
+
 
         return $this->render('post/index.html.twig', [
 			'posts' => $posts
