@@ -17,15 +17,17 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                {% if app.request.attributes.get('_route') != 'login' %}
-                    {% for category in categories %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('single_category', {slug: category.slug}) }}">
-                                {{ category.name }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                {% endif %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('user_index') }}">Usuários</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('post_index') }}">Posts</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('category_index') }}">Categorias</a>
+                </li>
             </ul>
         </div>
     </nav>
