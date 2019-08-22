@@ -34,7 +34,7 @@
 
                                 <small>
                                     Post criado em {{ post.createdAt|date("d/m/Y H:i:s") }}
-                                    por {{ post.author.firstName }}
+                                    por {{ post.author.firstName }} | Comentários: {{ post.commentsCollection.count() }}
                                 </small>
 
                                 <p>

@@ -58,9 +58,15 @@ class Post
 	 */
     private $categoryCollection;
 
+	/**
+	 * @ORM\OneToMany(targetEntity="Comment", mappedBy="post")
+	 */
+    private $commentsCollection;
+
     public function __construct()
     {
     	$this->categoryCollection = new ArrayCollection();
+    	$this->commentsCollection = new ArrayCollection();
     }
 
 	public function getId(): ?int
@@ -167,5 +173,8 @@ class Post
 		return $this;
 	}
 
-
+	public function getCommentsCollection()
+	{
+		return $this->commentsCollection;
+	}
 }
