@@ -28,7 +28,8 @@
                             {% for comment in post.commentsCollection %}
                                 <div class="card">
                                     <div class="card-body">
-                                        <strong>{{ comment.name }}</strong> - <strong>{{ comment.email }}</strong>
+                                        <strong>{{ comment.name }}</strong> - <strong>{{ comment.email }}</strong><br>
+                                        <small>Comentado em {{ comment.createdAt|date("d/m/Y H:i:s") }}</small>
                                         <br>
                                         {{ comment.comment }}
                                     </div>
@@ -40,7 +41,7 @@
                     <div class="col-12">
                         <hr>
                         <h3>Deixar Comentário</h3>
-                        {{ form_start(form, {action: path('comment_save', {post_id : post.id })}) }}
+                        {{ form_start(form, {attr: {action: path('comment_save', {post_id : post.id }), novalidate: 'novalidate'}}) }}
                             {{ form_widget(form) }}
                             <button type="submit" class="btn btn-sm btn-success">Enviar Comentário</button>
                         {{ form_end(form) }}

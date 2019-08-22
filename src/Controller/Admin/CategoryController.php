@@ -35,7 +35,7 @@ class CategoryController extends AbstractController
 		$form = $this->createForm(CategoryType::class, $category);
 		$form->handleRequest($request);
 
-		if($form->isSubmitted()) {
+		if($form->isSubmitted() && $form->isValid()) {
 			$category = $form->getData();
 			$category->setCreatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
 			$category->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
@@ -65,7 +65,7 @@ class CategoryController extends AbstractController
 		$form = $this->createForm(CategoryType::class, $category);
 		$form->handleRequest($request);
 
-		if($form->isSubmitted()) {
+		if($form->isSubmitted() && $form->isValid()) {
 			$category = $form->getData();
 			$category->setCreatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
 			$category->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));

@@ -45,7 +45,7 @@ class PostController extends AbstractController
 	    $form = $this->createForm(PostType::class, $post);
 	    $form->handleRequest($request);
 
-	    if($form->isSubmitted()) {
+	    if($form->isSubmitted() && $form->isValid()) {
 		    $post = $form->getData();
 		    $post->setCreatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
 		    $post->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
