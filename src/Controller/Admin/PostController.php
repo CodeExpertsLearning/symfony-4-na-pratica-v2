@@ -47,11 +47,6 @@ class PostController extends AbstractController
 
 	    if($form->isSubmitted() && $form->isValid()) {
 		    $post = $form->getData();
-		    $post->setCreatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
-		    $post->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
-
-//		    $user  = $this->getDoctrine()->getRepository(User::class)->find(1);
-//		    $post->setAuthor($user);
 
 		    $manager = $this->getDoctrine()->getManager();
 		    $manager->persist($post);
@@ -103,10 +98,6 @@ class PostController extends AbstractController
 
 		if($form->isSubmitted()) {
 			$post = $form->getData();
-			$post->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
-
-//			$user  = $this->getDoctrine()->getRepository(User::class)->find(1);
-//			$post->setAuthor($user);
 
 			$manager = $this->getDoctrine()->getManager();
 

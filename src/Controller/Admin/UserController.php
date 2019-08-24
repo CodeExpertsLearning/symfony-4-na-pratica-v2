@@ -44,9 +44,6 @@ class UserController extends AbstractController
     		$user->setPassword($password);
     		$user->setRoles();
 
-    		$user->setCreatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
-    		$user->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
-
     		$manager = $this->getDoctrine()->getManager();
     		$manager->persist($user);
     		$manager->flush();
@@ -83,7 +80,6 @@ class UserController extends AbstractController
 
 		if($form->isSubmitted()) {
 			$user = $form->getData();
-			$user->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
 
 			$manager = $this->getDoctrine()->getManager();
 

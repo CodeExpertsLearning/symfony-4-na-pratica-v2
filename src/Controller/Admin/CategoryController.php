@@ -37,8 +37,6 @@ class CategoryController extends AbstractController
 
 		if($form->isSubmitted() && $form->isValid()) {
 			$category = $form->getData();
-			$category->setCreatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
-			$category->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
 
 			$manager = $this->getDoctrine()->getManager();
 			$manager->persist($category);
@@ -67,8 +65,6 @@ class CategoryController extends AbstractController
 
 		if($form->isSubmitted() && $form->isValid()) {
 			$category = $form->getData();
-			$category->setCreatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
-			$category->setUpdatedAt(new \DateTime('now', new \DateTimeZone('America/Sao_Paulo')));
 
 			$manager = $this->getDoctrine()->getManager();
 			$manager->flush();
