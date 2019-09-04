@@ -169,7 +169,7 @@ class User implements UserInterface
 
 	public function setRoles()
 	{
-		$this->roles = 'ROLE_USER';
+		$this->roles = 'ROLE_AUTHOR';
 	}
 
 	public function getUsername(): ?string

@@ -28,6 +28,14 @@
                 {% endif %}
             </ul>
         </div>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <ul class="navbar-nav float-right">
+                <li class="nav-item">
+                    <a href="{{ path('post_index') }}" class="nav-link">Meus Posts</a>
+                </li>
+            </ul>
+        {% endif %}
     </nav>
     <div class="container">
         {% include 'includes/messages.html.twig' %}
